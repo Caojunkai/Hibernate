@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entry.AnyItem" table="any_item" schema="anymall">
+        <id name="id">
+            <column name="id" sql-type="int(10) unsigned"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="price">
+            <column name="price" sql-type="decimal(10,2) unsigned" precision="10" scale="2" not-null="true"/>
+        </property>
+        <property name="oprice">
+            <column name="oprice" sql-type="decimal(10,2) unsigned" precision="10" scale="2" not-null="true"/>
+        </property>
+        <property name="producer">
+            <column name="producer" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="productPlace">
+            <column name="product_place" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="num">
+            <column name="num" sql-type="int(10) unsigned" not-null="true"/>
+        </property>
+        <property name="img">
+            <column name="img" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="sn">
+            <column name="sn" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="ctime">
+            <column name="ctime" sql-type="timestamp"/>
+        </property>
+        <property name="utime">
+            <column name="utime" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="cuid">
+            <column name="cuid" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="uuid">
+            <column name="uuid" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="desc">
+            <column name="`desc`" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="keywords">
+            <column name="keywords" sql-type="varchar(255)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

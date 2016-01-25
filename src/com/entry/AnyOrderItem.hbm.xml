@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entry.AnyOrderItem" table="any_order_item" schema="anymall">
+        <id name="id">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <property name="discount" type="java.lang.Double">
+            <column name="`discount`"/>
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="`price`"/>
+        </property>
+        <many-to-one name="anyItem" class="com.entry.AnyItem">
+            <column name="iid"></column>
+        </many-to-one>
+        <many-to-one name="anyOrder" class="com.entry.AnyOrder">
+            <column name="oid"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.entry.AnyOrder" table="any_order" schema="anymall">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <property name="ctime" type="java.util.Date">
+            <column name="ctime"/>
+        </property>
+        <property name="utime" type="java.util.Date">
+            <column name="utime"/>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status"></column>
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount"></column>
+        </property>
+        <!--多对一映射-->
+        <many-to-one name="anyUser" class="com.entry.AnyUser">
+            <column name="uid" />
+        </many-to-one>
+        <!--单向的一对多关联-->
+        <set name="anyOrderItems" table="any_order_item" inverse="true">
+            <key column="oid"></key>
+            <one-to-many class="com.entry.AnyOrderItem"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
